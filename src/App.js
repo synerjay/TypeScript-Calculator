@@ -1,10 +1,9 @@
-import logo from './logo.svg';
-import './App.css';
+import Calculator from './containers/Calculator';
 
 function App() {
   return (
     <div className='App'>
-      <h2>Future site of the JavaScript Calculator</h2>
+      <Calculator />
     </div>
   );
 }
