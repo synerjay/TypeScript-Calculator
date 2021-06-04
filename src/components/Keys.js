@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Keys({ handleOperator }) {
+function Keys({ handleOperator, resetCalculator, inputDigit, inputDecimal }) {
   const handleClick = (e) => {
     const value = e.target.value;
     console.log(value);
@@ -14,16 +14,16 @@ function Keys({ handleOperator }) {
       case '=':
         handleOperator(value);
         break;
-      // case '.':
-      //   inputDecimal(value);
-      //   break;
-      // case 'all-clear':
-      //   resetCalculator();
-      //   break;
-      // default:
-      // if (Number.isInteger(parseFloat(value))) {
-      //   inputDigit(value);
-      // }
+      case '.':
+        inputDecimal(value);
+        break;
+      case 'all-clear':
+        resetCalculator();
+        break;
+      default:
+        if (Number.isInteger(parseFloat(value))) {
+          inputDigit(value);
+        }
     }
   };
 

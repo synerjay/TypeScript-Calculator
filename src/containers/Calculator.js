@@ -34,6 +34,20 @@ function Calculator() {
     }
   };
 
+  const inputDecimal = (dot) => {
+    if (waitingSecondOp) {
+      // calculator.displayValue = '0.'
+      setDisplayValue('0.');
+      // calculator.waitingForSecondOperand = false;
+      setWaitingSecondOp(false);
+      return;
+    }
+
+    if (!displayValue.includes(dot)) {
+      setDisplayValue((displayValue += dot));
+    }
+  };
+
   const handleOperator = (nextOperator) => {
     if (operator && waitingSecondOp) {
       if (nextOperator !== '-') {
@@ -105,6 +119,7 @@ function Calculator() {
         handleOperator={handleOperator}
         resetCalculator={resetCalculator}
         inputDigit={inputDigit}
+        inputDecimal={inputDecimal}
       />
     </div>
   );
