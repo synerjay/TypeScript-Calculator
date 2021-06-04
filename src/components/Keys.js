@@ -1,8 +1,30 @@
 import React from 'react';
 
-function Keys() {
+function Keys({ handleOperator }) {
   const handleClick = (e) => {
-    console.log(e.target.value);
+    const value = e.target.value;
+    console.log(value);
+    console.log(typeof value);
+
+    switch (value) {
+      case '+':
+      case '-':
+      case '*':
+      case '/':
+      case '=':
+        handleOperator(value);
+        break;
+      // case '.':
+      //   inputDecimal(value);
+      //   break;
+      // case 'all-clear':
+      //   resetCalculator();
+      //   break;
+      // default:
+      // if (Number.isInteger(parseFloat(value))) {
+      //   inputDigit(value);
+      // }
+    }
   };
 
   return (
@@ -25,50 +47,69 @@ function Keys() {
       >
         -
       </button>
-      <button type='button' className='operator' value='*' id='multiply'>
+      <button
+        onClick={handleClick}
+        type='button'
+        className='operator'
+        value='*'
+        id='multiply'
+      >
         &times;
       </button>
-      <button type='button' className='operator' value='/' id='divide'>
+      <button
+        onClick={handleClick}
+        type='button'
+        className='operator'
+        value='/'
+        id='divide'
+      >
         &divide;
       </button>
 
-      <button type='button' value='7' id='seven'>
+      <button onClick={handleClick} type='button' value='7' id='seven'>
         7
       </button>
-      <button type='button' value='8' id='eight'>
+      <button onClick={handleClick} type='button' value='8' id='eight'>
         8
       </button>
-      <button type='button' value='9' id='nine'>
+      <button onClick={handleClick} type='button' value='9' id='nine'>
         9
       </button>
 
-      <button type='button' value='4' id='four'>
+      <button onClick={handleClick} type='button' value='4' id='four'>
         4
       </button>
-      <button type='button' value='5' id='five'>
+      <button onClick={handleClick} type='button' value='5' id='five'>
         5
       </button>
-      <button type='button' value='6' id='six'>
+      <button onClick={handleClick} type='button' value='6' id='six'>
         6
       </button>
 
-      <button type='button' value='1' id='one'>
+      <button onClick={handleClick} type='button' value='1' id='one'>
         1
       </button>
-      <button type='button' value='2' id='two'>
+      <button onClick={handleClick} type='button' value='2' id='two'>
         2
       </button>
-      <button type='button' value='3' id='three'>
+      <button onClick={handleClick} type='button' value='3' id='three'>
         3
       </button>
 
-      <button type='button' value='0' id='zero'>
+      <button onClick={handleClick} type='button' value='0' id='zero'>
         0
       </button>
-      <button type='button' className='decimal function' value='.' id='decimal'>
+      <button
+        onClick={handleClick}
+        type='button'
+        className='decimal function'
+        value='.'
+        id='decimal'
+      >
         .
       </button>
       <button
+        onClick={handleClick}
         type='button'
         className='all-clear function'
         value='all-clear'
@@ -78,6 +119,7 @@ function Keys() {
       </button>
 
       <button
+        onClick={handleClick}
         type='button'
         className='equal-sign operator'
         value='='
