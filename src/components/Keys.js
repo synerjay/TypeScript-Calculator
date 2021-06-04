@@ -1,12 +1,28 @@
 import React from 'react';
 
 function Keys() {
+  const handleClick = (e) => {
+    console.log(e.target.value);
+  };
+
   return (
     <div className='Keys'>
-      <button type='button' className='operator' value='+' id='add'>
+      <button
+        onClick={handleClick}
+        type='button'
+        className='operator'
+        value='+'
+        id='add'
+      >
         +
       </button>
-      <button type='button' className='operator' value='-' id='subtract'>
+      <button
+        onClick={handleClick}
+        type='button'
+        className='operator'
+        value='-'
+        id='subtract'
+      >
         -
       </button>
       <button type='button' className='operator' value='*' id='multiply'>

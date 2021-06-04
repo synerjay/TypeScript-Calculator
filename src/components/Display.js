@@ -1,9 +1,15 @@
 import React, { Fragment } from 'react';
 
-function Display() {
+function Display({ displayValue }) {
   return (
     <Fragment>
-      <input type='text' className='Display' value='0' id='display' disabled />
+      <input
+        type='text'
+        className='Display'
+        value={displayValue}
+        id='display'
+        disabled
+      />
     </Fragment>
   );
 }
