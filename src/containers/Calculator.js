@@ -22,7 +22,10 @@ function Calculator() {
   const inputDigit = (digit) => {
     if (waitingSecondOp) {
       // calculator.displayValue = displayValue === '-' ? displayValue + digit : digit;
-      setDisplayValue(displayValue === '-' ? displayValue + digit : digit);
+      displayValue === '-'
+        ? setDisplayValue(displayValue + digit)
+        : setDisplayValue(digit);
+      console.log(displayValue);
       // calculator.waitingForSecondOperand = false;
       setWaitingSecondOp(false);
     } else if (displayValue === '0') {
@@ -62,8 +65,7 @@ function Calculator() {
           return;
         }
       } else if (nextOperator === '-') {
-        // calculator.displayValue = '-';
-        setOperator('-');
+        setDisplayValue('-');
         return;
       }
     }
