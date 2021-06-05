@@ -21,27 +21,20 @@ function Calculator() {
 
   const inputDigit = (digit) => {
     if (waitingSecondOp) {
-      // calculator.displayValue = displayValue === '-' ? displayValue + digit : digit;
       displayValue === '-'
         ? setDisplayValue(displayValue + digit)
         : setDisplayValue(digit);
-      console.log(displayValue);
-      // calculator.waitingForSecondOperand = false;
       setWaitingSecondOp(false);
     } else if (displayValue === '0') {
-      // calculator.displayValue = digit;
       setDisplayValue(digit);
     } else {
-      // calculator.displayValue = displayValue + digit;
       setDisplayValue(displayValue + digit);
     }
   };
 
   const inputDecimal = (dot) => {
     if (waitingSecondOp) {
-      // calculator.displayValue = '0.'
       setDisplayValue('0.');
-      // calculator.waitingForSecondOperand = false;
       setWaitingSecondOp(false);
       return;
     }
@@ -55,9 +48,7 @@ function Calculator() {
     if (operator && waitingSecondOp) {
       if (nextOperator !== '-') {
         if (displayValue === '-') {
-          // calculator.displayValue = '0';
           setDisplayValue('0');
-          // calculator.operator = nextOperator;
           setOperator(nextOperator);
           return;
         } else {
@@ -72,19 +63,12 @@ function Calculator() {
 
     let inputValue = parseFloat(displayValue);
     if (firstOperand === null && !isNaN(inputValue)) {
-      // calculator.firstOperand = inputValue;
       setfirstOperand(inputValue);
     } else if (operator) {
       const result = calculate(firstOperand, inputValue, operator);
-
-      // calculator.displayValue = `${parseFloat(result.toFixed(7))}`;
       setDisplayValue(`${parseFloat(result.toFixed(7))}`);
-      // calculator.firstOperand = result;
       setfirstOperand(result);
     }
-
-    // calculator.waitingForSecondOperand = true;
-    // calculator.operator = nextOperator;
     setWaitingSecondOp(true);
     setOperator(nextOperator);
   };
