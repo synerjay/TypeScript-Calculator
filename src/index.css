@@ -29,7 +29,7 @@ html {
   box-sizing: inherit;
 }
 
-.calculator {
+.Calculator {
   border: 1px solid #ccc;
   border-radius: 5px;
   position: absolute;
@@ -39,7 +39,7 @@ html {
   width: 400px;
 }
 
-.calculator-screen {
+.Display {
   width: 100%;
   font-size: 5rem;
   height: 80px;
@@ -102,7 +102,7 @@ button:hover {
   background-color: #eaeaea;
 }
 
-.calculator-keys {
+.Keys {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 20px;

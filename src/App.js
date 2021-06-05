@@ -2,7 +2,7 @@ import Calculator from './containers/Calculator';
 
 function App() {
   return (
-    <div className='App'>
+    <div className='App h-screen w-screen'>
       <Calculator />
     </div>
   );

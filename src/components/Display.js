@@ -5,7 +5,7 @@ function Display({ displayValue }) {
     <Fragment>
       <input
         type='text'
-        className='calculator-screen'
+        className='Display'
         value={displayValue}
         id='display'
         disabled
