@@ -31,7 +31,7 @@ html {
 
 .Calculator {
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 20px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -52,14 +52,15 @@ html {
 }
 
 button {
-  height: 60px;
+  height: 90px;
+  width: 100%;
   background-color: #000;
-  border-radius: 3px;
+  border-radius: 0px;
   border: 1px solid #c4c4c4;
   background-color: transparent;
   font-size: 2rem;
   color: #333;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to bottom,
     transparent,
     transparent 50%,
@@ -69,7 +70,7 @@ button {
     inset 0 1px 0 0 rgba(255, 255, 255, 0.45),
     inset 0 -1px 0 0 rgba(255, 255, 255, 0.15),
     0 1px 0 0 rgba(255, 255, 255, 0.15);
-  text-shadow: 0 1px rgba(255, 255, 255, 0.4);
+  text-shadow: 0 1px rgba(255, 255, 255, 0.4); */
 }
 
 button:hover {
@@ -105,6 +106,6 @@ button:hover {
 .Keys {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-gap: 20px;
-  padding: 20px;
+  grid-gap: -1px;
+  padding: 0px;
 }
