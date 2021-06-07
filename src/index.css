@@ -23,6 +23,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
   width: 400px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
 }
 
 .Display {
@@ -47,6 +50,8 @@ button {
   /* border: 1px solid #c4c4c4; */
   font-size: 2rem;
   color: #fff;
+  user-select: none;
+  outline: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   border-right: 1px solid rgba(255, 255, 255, 0.05);
   transition: 0.5s;
