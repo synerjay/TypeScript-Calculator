@@ -61,6 +61,9 @@ button:hover {
   transition: 0s;
   background: rgba(255, 255, 255, 0.4);
 }
+button:focus {
+  outline: none;
+}
 
 .operator {
   color: #fff;
