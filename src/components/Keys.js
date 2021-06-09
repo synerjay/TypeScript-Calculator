@@ -3,8 +3,6 @@ import React from 'react';
 function Keys({ handleOperator, resetCalculator, inputDigit, inputDecimal }) {
   const handleClick = (e) => {
     const value = e.target.value;
-    console.log(value);
-    console.log(typeof value);
 
     switch (value) {
       case '+':

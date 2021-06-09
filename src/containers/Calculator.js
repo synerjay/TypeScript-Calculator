@@ -1,14 +1,24 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Display from '../components/Display';
 import Keys from '../components/Keys';
 
 function Calculator() {
+  // Basic Logic of Calculator
+  // firstOperand + operator + secondOperator
+
   // Display Value State
   const [displayValue, setDisplayValue] = useState('0');
   const [firstOperand, setfirstOperand] = useState(null);
   const [waitingSecondOp, setWaitingSecondOp] = useState(false);
   const [operator, setOperator] = useState(null);
-  const [history, setHistory] = useState([]); // set to an empty array
+  // const [history, setHistory] = useState([]); // set to an empty array
+
+  useEffect(() => {
+    // console.log(displayValue);
+    console.log(firstOperand);
+    console.log(waitingSecondOp);
+    console.log(operator);
+  }, [firstOperand, waitingSecondOp, operator]);
 
   // <------ Operator Functions ------>
 
@@ -33,7 +43,7 @@ function Calculator() {
     }
 
     if (!displayValue.includes(dot)) {
-      setDisplayValue((displayValue += dot));
+      setDisplayValue(displayValue + dot);
     }
   };
 
