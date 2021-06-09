@@ -11,14 +11,14 @@ function Calculator() {
   const [firstOperand, setfirstOperand] = useState(null);
   const [waitingSecondOp, setWaitingSecondOp] = useState(false);
   const [operator, setOperator] = useState(null);
-  // const [history, setHistory] = useState([]); // set to an empty array
+  const [formula, setFormula] = useState([]); // set to an empty array
+  // const [result, setResult] = useState(null);
 
   useEffect(() => {
     // console.log(displayValue);
-    console.log(firstOperand);
+    console.log(formula);
     console.log(waitingSecondOp);
-    console.log(operator);
-  }, [firstOperand, waitingSecondOp, operator]);
+  }, [formula, waitingSecondOp]);
 
   // <------ Operator Functions ------>
 
@@ -31,7 +31,8 @@ function Calculator() {
     } else if (displayValue === '0') {
       setDisplayValue(digit);
     } else {
-      setDisplayValue(displayValue + digit);
+      const value = displayValue + digit;
+      setDisplayValue(value);
     }
   };
 
@@ -50,27 +51,28 @@ function Calculator() {
   const handleOperator = (nextOperator) => {
     if (operator && waitingSecondOp) {
       if (nextOperator !== '-') {
-        if (displayValue === '-') {
-          setDisplayValue('0');
-          setOperator(nextOperator);
-          return;
-        } else {
-          setOperator(nextOperator);
-          return;
-        }
+        setFormula(formula.slice(-1));
+        setOperator(nextOperator);
+        return;
       } else if (nextOperator === '-') {
         setDisplayValue('-');
+        setFormula((valueArray) => [...valueArray, '-']);
         return;
       }
     }
 
     let inputValue = parseFloat(displayValue);
+
     if (firstOperand === null && !isNaN(inputValue)) {
       setfirstOperand(inputValue);
-    } else if (operator) {
+    } else if (operator && !waitingSecondOp) {
       const result = calculate(firstOperand, inputValue, operator);
       setDisplayValue(`${parseFloat(result.toFixed(7))}`);
       setfirstOperand(result);
+      if (nextOperator === '=') {
+        setFormula((valueArray) => [...valueArray, '=']);
+        setFormula((valueArray) => [...valueArray, result]);
+      }
     }
     setWaitingSecondOp(true);
     setOperator(nextOperator);
@@ -99,6 +101,7 @@ function Calculator() {
     setfirstOperand(null);
     setWaitingSecondOp(false);
     setOperator(null);
+    setFormula([]);
   };
 
   return (
@@ -109,6 +112,7 @@ function Calculator() {
         resetCalculator={resetCalculator}
         inputDigit={inputDigit}
         inputDecimal={inputDecimal}
+        setFormula={setFormula}
       />
     </div>
   );

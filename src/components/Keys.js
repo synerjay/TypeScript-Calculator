@@ -1,6 +1,13 @@
 import React from 'react';
 
-function Keys({ handleOperator, resetCalculator, inputDigit, inputDecimal }) {
+function Keys({
+  handleOperator,
+  resetCalculator,
+  inputDigit,
+  inputDecimal,
+  setFormula,
+  // result,
+}) {
   const handleClick = (e) => {
     const value = e.target.value;
 
@@ -11,6 +18,9 @@ function Keys({ handleOperator, resetCalculator, inputDigit, inputDecimal }) {
       case '/':
       case '=':
         handleOperator(value);
+        if (value !== '=') {
+          setFormula((valueArray) => [...valueArray, value]);
+        }
         break;
       case '.':
         inputDecimal(value);
@@ -21,6 +31,7 @@ function Keys({ handleOperator, resetCalculator, inputDigit, inputDecimal }) {
       default:
         if (Number.isInteger(parseFloat(value))) {
           inputDigit(value);
+          setFormula((valueArray) => [...valueArray, value]);
         }
     }
   };
