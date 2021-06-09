@@ -6,7 +6,7 @@ function Keys({
   inputDigit,
   inputDecimal,
   setFormula,
-  // result,
+  setEqualPressed,
 }) {
   const handleClick = (e) => {
     const value = e.target.value;
@@ -20,6 +20,8 @@ function Keys({
         handleOperator(value);
         if (value !== '=') {
           setFormula((valueArray) => [...valueArray, value]);
+        } else {
+          setEqualPressed(true);
         }
         break;
       case '.':

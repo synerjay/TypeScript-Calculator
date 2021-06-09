@@ -12,13 +12,15 @@ function Calculator() {
   const [waitingSecondOp, setWaitingSecondOp] = useState(false);
   const [operator, setOperator] = useState(null);
   const [formula, setFormula] = useState([]); // set to an empty array
+  const [equalPressed, setEqualPressed] = useState(false);
   // const [result, setResult] = useState(null);
 
   useEffect(() => {
     // console.log(displayValue);
     // console.log(formula.join(' '));
     console.log(waitingSecondOp);
-  }, [formula, waitingSecondOp]);
+    console.log(equalPressed);
+  }, [formula, waitingSecondOp, equalPressed]);
 
   // <------ Operator Functions ------>
 
@@ -50,13 +52,12 @@ function Calculator() {
 
   const handleOperator = (nextOperator) => {
     if (operator && waitingSecondOp) {
-      if (nextOperator !== '-') {
+      if (nextOperator === '-' && !equalPressed) {
+        setDisplayValue('-');
+        return;
+      } else {
         setFormula(formula.slice(-1));
         setOperator(nextOperator);
-        return;
-      } else if (nextOperator === '-') {
-        setDisplayValue('-');
-        // setFormula((valueArray) => [...valueArray, '-']);
         return;
       }
     }
@@ -102,6 +103,7 @@ function Calculator() {
     setWaitingSecondOp(false);
     setOperator(null);
     setFormula([]);
+    setEqualPressed(false);
   };
 
   return (
@@ -113,6 +115,7 @@ function Calculator() {
         inputDigit={inputDigit}
         inputDecimal={inputDecimal}
         setFormula={setFormula}
+        setEqualPressed={setEqualPressed}
       />
     </div>
   );
