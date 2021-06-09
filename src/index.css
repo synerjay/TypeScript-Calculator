@@ -43,6 +43,21 @@
   border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+.Formula {
+  width: 100%;
+  font-size: 2rem;
+  height: 80px;
+  border: none;
+  position: relative;
+  background: rgba(255, 255, 255, 0);
+  color: #fff;
+  text-align: right;
+  padding-right: 20px;
+  padding-left: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-right: 1px solid rgba(255, 255, 255, 0.05);
+}
+
 button {
   height: 90px;
   width: 100%;

@@ -16,7 +16,7 @@ function Calculator() {
 
   useEffect(() => {
     // console.log(displayValue);
-    console.log(formula);
+    // console.log(formula.join(' '));
     console.log(waitingSecondOp);
   }, [formula, waitingSecondOp]);
 
@@ -56,7 +56,7 @@ function Calculator() {
         return;
       } else if (nextOperator === '-') {
         setDisplayValue('-');
-        setFormula((valueArray) => [...valueArray, '-']);
+        // setFormula((valueArray) => [...valueArray, '-']);
         return;
       }
     }
@@ -106,7 +106,7 @@ function Calculator() {
 
   return (
     <div className='Calculator'>
-      <Display displayValue={displayValue} />
+      <Display displayValue={displayValue} history={formula.join(' ')} />
       <Keys
         handleOperator={handleOperator}
         resetCalculator={resetCalculator}

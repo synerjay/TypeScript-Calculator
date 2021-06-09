@@ -24,6 +24,7 @@ function Keys({
         break;
       case '.':
         inputDecimal(value);
+        setFormula((valueArray) => [...valueArray, value]);
         break;
       case 'all-clear':
         resetCalculator();
