@@ -5,17 +5,10 @@ import Keys from '../components/Keys';
 function Calculator() {
   // Display Value State
   const [displayValue, setDisplayValue] = useState('0');
-
-  // First Operand State
   const [firstOperand, setfirstOperand] = useState(null);
-
-  // Waiting for Second Operand State
-
   const [waitingSecondOp, setWaitingSecondOp] = useState(false);
-
-  // Operator State
-
   const [operator, setOperator] = useState(null);
+  const [history, setHistory] = useState([]); // set to an empty array
 
   // <------ Operator Functions ------>
 
