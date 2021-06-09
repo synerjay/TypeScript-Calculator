@@ -110,7 +110,11 @@ function Calculator() {
     <div className='Calculator'>
       <Display
         displayValue={displayValue}
-        history={formula.join(' ').replace(/\*/g, '×').replace(/-/g, '‑')}
+        history={formula
+          .join(' ')
+          .replace(/\*/g, '×')
+          .replace(/\//g, '÷')
+          .replace(/-/g, '‑')}
       />
       <Keys
         handleOperator={handleOperator}
