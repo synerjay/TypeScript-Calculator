@@ -87,7 +87,7 @@ function Calculator() {
     firstOperand: number | null,
     secondOperand: number,
     operator: string
-  ) => {
+  ): number | undefined => {
     if (!firstOperand) return;
     if (operator === '+') {
       return firstOperand + secondOperand;
