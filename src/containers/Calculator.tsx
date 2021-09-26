@@ -50,7 +50,7 @@ function Calculator() {
     }
   };
 
-  const handleOperator = (nextOperator: string) => {
+  const handleOperator = (nextOperator: string): void => {
     if (operator && waitingSecondOp) {
       if (nextOperator === '-' && !equalPressed) {
         setDisplayValue('-');

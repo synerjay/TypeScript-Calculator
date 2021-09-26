@@ -1,5 +1,14 @@
 import React from 'react';
 
+interface KeysProps {
+  handleOperator(a: string): void;
+  resetCalculator(): void;
+  inputDigit(a: string): void;
+  inputDecimal:
+  setFormula:
+  setEqualPressed: 
+}
+
 function Keys({
   handleOperator,
   resetCalculator,
