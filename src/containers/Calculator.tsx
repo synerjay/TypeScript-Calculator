@@ -15,13 +15,6 @@ function Calculator() {
   const [equalPressed, setEqualPressed] = useState(false);
   // const [result, setResult] = useState(null);
 
-  useEffect(() => {
-    // console.log(displayValue);
-    // console.log(formula.join(' '));
-    console.log(waitingSecondOp);
-    console.log(equalPressed);
-  }, [formula, waitingSecondOp, equalPressed]);
-
   // <------ Operator Functions ------>
   // input should be string
   const inputDigit = (digit: string): void => {
