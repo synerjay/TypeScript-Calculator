@@ -4,9 +4,9 @@ interface KeysProps {
   handleOperator(a: string): void;
   resetCalculator(): void;
   inputDigit(a: string): void;
-  inputDecimal:
-  setFormula:
-  setEqualPressed: 
+  inputDecimal(a: string): void;
+  setFormula: React.Dispatch<React.SetStateAction<string[]>>;
+  setEqualPressed: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 function Keys({
@@ -16,9 +16,9 @@ function Keys({
   inputDecimal,
   setFormula,
   setEqualPressed,
-}) {
-  const handleClick = (e) => {
-    const value = e.target.value;
+}: KeysProps) {
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const value = (e.target as HTMLButtonElement).value; // needs to be explicitly tell TS about the kind of HTML button is present
 
     switch (value) {
       case '+':
@@ -87,7 +87,12 @@ function Keys({
         &divide;
       </button>
 
-      <button onClick={handleClick} type='button' value='7' id='seven'>
+      <button
+        onClick={(e) => handleClick(e)}
+        type='button'
+        value='7'
+        id='seven'
+      >
         7
       </button>
       <button onClick={handleClick} type='button' value='8' id='eight'>
