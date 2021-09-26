@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/TypeScript-Calculator/static/css/main.2311e0e4.chunk.css",
+    "main.js": "/TypeScript-Calculator/static/js/main.829c07b4.chunk.js",
+    "main.js.map": "/TypeScript-Calculator/static/js/main.829c07b4.chunk.js.map",
+    "runtime-main.js": "/TypeScript-Calculator/static/js/runtime-main.57371508.js",
+    "runtime-main.js.map": "/TypeScript-Calculator/static/js/runtime-main.57371508.js.map",
+    "static/js/2.1e0bb0c3.chunk.js": "/TypeScript-Calculator/static/js/2.1e0bb0c3.chunk.js",
+    "static/js/2.1e0bb0c3.chunk.js.map": "/TypeScript-Calculator/static/js/2.1e0bb0c3.chunk.js.map",
+    "index.html": "/TypeScript-Calculator/index.html",
+    "static/css/main.2311e0e4.chunk.css.map": "/TypeScript-Calculator/static/css/main.2311e0e4.chunk.css.map",
+    "static/js/2.1e0bb0c3.chunk.js.LICENSE.txt": "/TypeScript-Calculator/static/js/2.1e0bb0c3.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/TypeScript-Calculator/static/media/fancy.8f921062.jpeg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.57371508.js",
+    "static/js/2.1e0bb0c3.chunk.js",
+    "static/css/main.2311e0e4.chunk.css",
+    "static/js/main.829c07b4.chunk.js"
+  ]
+}
