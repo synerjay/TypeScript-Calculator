@@ -7,11 +7,11 @@ function Calculator() {
   // firstOperand + operator + secondOperator
 
   // Display Value State
-  const [displayValue, setDisplayValue] = useState('0');
-  const [firstOperand, setfirstOperand] = useState(null);
+  const [displayValue, setDisplayValue] = useState<string>('0');
+  const [firstOperand, setfirstOperand] = useState<number | null>(null);
   const [waitingSecondOp, setWaitingSecondOp] = useState(false);
-  const [operator, setOperator] = useState(null);
-  const [formula, setFormula] = useState([]); // set to an empty array
+  const [operator, setOperator] = useState<string | null>(null);
+  const [formula, setFormula] = useState<string[]>([]); // set to an empty array but typescripted to be an array of script
   const [equalPressed, setEqualPressed] = useState(false);
   // const [result, setResult] = useState(null);
 
@@ -23,8 +23,8 @@ function Calculator() {
   }, [formula, waitingSecondOp, equalPressed]);
 
   // <------ Operator Functions ------>
-
-  const inputDigit = (digit) => {
+  // input should be string
+  const inputDigit = (digit: string): void => {
     if (waitingSecondOp) {
       displayValue === '-'
         ? setDisplayValue(displayValue + digit)
@@ -38,7 +38,7 @@ function Calculator() {
     }
   };
 
-  const inputDecimal = (dot) => {
+  const inputDecimal = (dot: string): void => {
     if (waitingSecondOp) {
       setDisplayValue('0.');
       setWaitingSecondOp(false);
@@ -50,7 +50,7 @@ function Calculator() {
     }
   };
 
-  const handleOperator = (nextOperator) => {
+  const handleOperator = (nextOperator: string) => {
     if (operator && waitingSecondOp) {
       if (nextOperator === '-' && !equalPressed) {
         setDisplayValue('-');
@@ -68,11 +68,13 @@ function Calculator() {
       setfirstOperand(inputValue);
     } else if (operator && !waitingSecondOp) {
       const result = calculate(firstOperand, inputValue, operator);
-      setDisplayValue(`${parseFloat(result.toFixed(7))}`);
-      setfirstOperand(result);
-      if (nextOperator === '=') {
-        setFormula((valueArray) => [...valueArray, '=']);
-        setFormula((valueArray) => [...valueArray, result]);
+      if (result) {
+        setDisplayValue(`${parseFloat(result.toFixed(7))}`);
+        setfirstOperand(result);
+        if (nextOperator === '=') {
+          setFormula((valueArray) => [...valueArray, '=']);
+          setFormula((valueArray) => [...valueArray, result.toString()]);
+        }
       }
     }
     setWaitingSecondOp(true);
@@ -81,7 +83,12 @@ function Calculator() {
 
   // Calculate Function
 
-  const calculate = (firstOperand, secondOperand, operator) => {
+  const calculate = (
+    firstOperand: number | null,
+    secondOperand: number,
+    operator: string
+  ) => {
+    if (!firstOperand) return;
     if (operator === '+') {
       return firstOperand + secondOperand;
     } else if (operator === '-') {

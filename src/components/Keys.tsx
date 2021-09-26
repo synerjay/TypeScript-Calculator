@@ -33,7 +33,7 @@ function Keys({
         break;
       default:
         if (Number.isInteger(parseFloat(value))) {
-          inputDigit(value);
+          inputDigit(value.toString());
           setFormula((valueArray) => [...valueArray, value]);
         }
     }
