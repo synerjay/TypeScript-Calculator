@@ -1,7 +1,11 @@
 import React, { Fragment } from 'react';
 
-function Display({ displayValue, history }) {
-  console.log(history);
+interface DisplayProps {
+  displayValue: string;
+  history: string;
+}
+
+function Display({ displayValue, history }: DisplayProps) {
   return (
     <Fragment>
       <input
